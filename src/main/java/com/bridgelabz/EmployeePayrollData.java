@@ -15,19 +15,7 @@ public class EmployeePayrollData
         this.name = name;
         this.doj = doj;
     }
-    ArrayList<EmployeePayrollData> employeeList;
-
-    public EmployeePayrollData() {
-
-    }
-
-    public ArrayList<EmployeePayrollData> getEmployeeList() {
-        return employeeList;
-    }
-
-    public void setEmployeeList(ArrayList<EmployeePayrollData> employeeList) {
-        this.employeeList = employeeList;
-    }
+   
 
     public int getId() {
         return id;
