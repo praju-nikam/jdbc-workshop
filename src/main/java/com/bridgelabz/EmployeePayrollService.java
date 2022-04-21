@@ -4,34 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EmployeePayrollService
 {
-   public ArrayList<EmployeePayrollData> employeeList = new ArrayList<>();
+   
    PreparedStatement preparedStatement;
   Connection connection = EmployeePayrollDataBase.getConnection();
-
-   public List<EmployeePayrollData> queryExecute(String query){
-    employeeList = new ArrayList<>();
-     try{
-          preparedStatement = connection.prepareStatement(query);
-         ResultSet resultSet = preparedStatement.executeQuery();
-         while (resultSet.next())
-         {
-                EmployeePayrollData employeePayrollData = new EmployeePayrollData();
-                employeePayrollData.setId(resultSet.getInt("Id"));
-                employeePayrollData.setName(resultSet.getString("Name"));
-                employeePayrollData.setDoj(resultSet.getDate("DOJ"));
-         }
-
-     } catch (SQLException e) {
-         throw new EmployeeException("Invalid column label");
-     }
-
-       return employeeList;
-   }
 
     public void insertData()
     {
