@@ -6,30 +6,22 @@ import java.sql.SQLException;
 
 public class EmployeePayrollDataBase {
     private static Connection connection = null;
-    static String jdbc_Url = "jdbc:mysql://localhost: 3306 //employee_payroll";
+    static String jdbc_Url = "jdbc:mysql://localhost: 3306/employee_payroll";
     static String user_Name = "root";
     static String password = "Anvi@1112";
-  static {
-      try
 
-    {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection(jdbc_Url, user_Name, password);
-    }
-    catch(
-    ClassNotFoundException e)
-
-    {
-        throw new EmployeeException("Invalid Driver");
-    }
-    catch(SQLException throwable)
-
-    {
-        throw new EmployeeException("Invalid Get Connection");
-    }
-
-}
     public static Connection getConnection() {
+        try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded");
+            connection = DriverManager.getConnection(jdbc_Url, user_Name, password);
+            System.out.println("Connection Successfully");
+        } catch (ClassNotFoundException e) {
+            throw new EmployeeException("invalid driver");
+        } catch (SQLException throwable) {
+            throw new EmployeeException("Invalid get connection parameters");
+        }
         return connection;
     }
 }
