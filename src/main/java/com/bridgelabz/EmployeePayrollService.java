@@ -11,25 +11,14 @@ public class EmployeePayrollService
    PreparedStatement preparedStatement;
   Connection connection = EmployeePayrollDataBase.getConnection();
 
-    public void insertData()
+   
+    public void insertData(String empName, String doj)
     {
             String insert = "insert into employee (Name,DOJ) values(?,?);";
             try{
                 preparedStatement = connection.prepareStatement(insert);
-                preparedStatement.setString(1,"Vaibhav");
-                preparedStatement.setString(2,"2015-03-01");
-                preparedStatement.execute();
-                preparedStatement.setString(1,"Sanket");
-                preparedStatement.setString(2,"2020-01-01");
-                preparedStatement.execute();
-                preparedStatement.setString(1,"Aparna");
-                preparedStatement.setString(2,"2019-06-01");
-                preparedStatement.execute();
-                preparedStatement.setString(1,"Gargi");
-                preparedStatement.setString(2,"2012-03-10");
-                preparedStatement.execute();
-                preparedStatement.setString(1,"Prajakta");
-                preparedStatement.setString(2,"2021-05-01");
+                preparedStatement.setString(1,empName);
+                preparedStatement.setString(2,doj);
                 preparedStatement.execute();
                 System.out.println("Added Successfully");
 
@@ -41,10 +30,10 @@ public class EmployeePayrollService
 
         }
 
-        public void deleteData() throws SQLException {
+        public void deleteData(String name) throws SQLException {
             String delete = "delete from employee where Name = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(delete);
-            preparedStatement.setString(1, "Prajakta");
+            preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
             System.out.println("Delete Record SuccessFully");
         }
@@ -78,7 +67,6 @@ public class EmployeePayrollService
                 System.out.println(e);
             }
         }
-
 
     }
 
