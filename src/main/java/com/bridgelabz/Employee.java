@@ -8,7 +8,7 @@ public class Employee
 {
     public static void main(String[] args) throws SQLException {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- Welcome to Employee Payroll -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-        EmployeePayrollDataBase employeePayrollDataBase = new EmployeePayrollDataBase();
+       EmployeePayrollDataBase employeePayrollDataBase = new EmployeePayrollDataBase();
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
 
         Employee employee = new Employee();
@@ -22,12 +22,16 @@ public class Employee
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-
-                    employeePayrollService.insertData();
+                    System.out.println("Enter Name :");
+                    String empName = scanner.next();
+                    System.out.println("Enter Date of Joining :");
+                    String doj = scanner.next();
+                    employeePayrollService.insertData(empName,doj);
                     break;
                 case 2:
-
-                    employeePayrollService.deleteData();
+                    System.out.println("Enter Name :");
+                    String name=scanner.next();
+                    employeePayrollService.deleteData(name);
                     break;
                 case 3:
                     employeePayrollService.displayRecord();
@@ -35,6 +39,7 @@ public class Employee
                 case  4 :
                     System.out.println("Exit");
                     break;
+          
             }
         }
 
