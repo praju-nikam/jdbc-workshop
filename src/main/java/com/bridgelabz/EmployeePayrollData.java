@@ -1,15 +1,32 @@
 package com.bridgelabz;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class EmployeePayrollData
 {
     public int id;
     public String name;
-    public String doj;
+    public Date doj;
 
-    public EmployeePayrollData(int id, String name, String doj) {
+    public EmployeePayrollData(int id, String name, Date doj) {
         this.id = id;
         this.name = name;
         this.doj = doj;
+    }
+    ArrayList<EmployeePayrollData> employeeList;
+
+    public EmployeePayrollData() {
+
+    }
+
+    public ArrayList<EmployeePayrollData> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(ArrayList<EmployeePayrollData> employeeList) {
+        this.employeeList = employeeList;
     }
 
     public int getId() {
@@ -28,11 +45,11 @@ public class EmployeePayrollData
         this.name = name;
     }
 
-    public String getDoj() {
+    public Date getDoj() {
         return doj;
     }
 
-    public void setDoj(String doj) {
+    public void setDoj(Date doj) {
         this.doj = doj;
     }
 
